@@ -1,5 +1,5 @@
 <template>
-    <div class="nav-bar">
+    <div class="nav-bar" v-if="$route.name !== 'login'">
         <div class="logo">
             <img class="logo-img" src="@/assets/logo.png" alt="">
             <p class="logo-text">{{shopName}}</p>
