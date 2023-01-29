@@ -4,6 +4,7 @@
             <h4>
                 {{ title }}
             </h4>
+            <img :src="image" :alt="title">
             {{ price }}$
             <p>
                 {{ description }}
@@ -18,6 +19,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
     props: {
         title: String,
+        image: String,
         price: Number,
         description: String,
         id: Number,

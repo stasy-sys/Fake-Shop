@@ -1,6 +1,6 @@
 <template>
     <h1>List of products</h1>
-    <Product v-for="(item) in items" :id="item.id" :title="item.title" :price="item.price" :description="item.description" />
+    <Product v-for="(item) in items" :id="item.id" :title="item.title" :price="item.price" :description="item.description" :image="item.image"/>
 </template>
 
 <script lang="ts">
@@ -29,6 +29,7 @@ export default defineComponent({
                     title: element.title,
                     price: element.price,
                     description: element.description,
+                    image: element.images[0],
                 })
             });
         })
