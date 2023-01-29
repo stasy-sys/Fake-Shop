@@ -8,11 +8,12 @@
             <router-link to="/products">Products</router-link> |
             <router-link to="/profile">Profile</router-link>
         </nav>
-        <button> Log out </button>
+        <button v-on:click="handleLogout"> Log out </button>
     </div>
 </template>
 
 <script lang="ts">
+import router from '@/router';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -20,7 +21,12 @@ export default defineComponent({
         shopName: String
     },
     setup() {
-        
+        return {
+            handleLogout:() => {
+                localStorage.removeItem("token");
+                router.push("home");
+            }
+        }
     }
 })
 </script>

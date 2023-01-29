@@ -14,6 +14,7 @@
 import { defineComponent } from 'vue'
 import { AxiosResponse } from "axios";
 import fakeShopApi from "@/api/fakeShopApi";
+import router from '@/router';
 
 export default defineComponent({
     props: {
@@ -35,6 +36,7 @@ export default defineComponent({
                 );
                 loginRequest.then((response: any) => {
                     localStorage.setItem('token', response.data.access_token);
+                    router.push("home")
                 }).catch(() => {
                     alert("Login failed. Bad credentials.");
                 });
