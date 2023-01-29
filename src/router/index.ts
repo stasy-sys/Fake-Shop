@@ -19,6 +19,19 @@ const routes: Array<RouteRecordRaw> = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductsView.vue')
   },
+  {
+    path: '/products/:id',
+    name: 'product',
+    beforeEnter: [haveRoleGuard],
+    props: (route) => {
+      const id = Number(route.params.id);
+      return {id}
+    },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/DetailsView.vue')
+  },
 
   {
     path: '/profile',
