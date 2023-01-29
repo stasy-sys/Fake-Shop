@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>{{ name }}</h1>
-        <img src="" alt="">
+        <img :src="avatar" alt="avatar">
         <h2>{{ email }}</h2>
         <h2>{{ role }}</h2>
     </div>
@@ -18,16 +18,19 @@ export default defineComponent({
         let name = ref<string>();
         let email = ref<string>();
         let role = ref<string>();
+        let avatar = ref<string>();
 
         productRequest.then((response) => {
             name.value = response.data.name;
             email.value = response.data.email;
             role.value = response.data.role;
+            avatar.value = response.data.avatar;
         })
         return {
             name,
             email,
             role,
+            avatar,
         }
     }
 });
