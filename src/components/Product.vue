@@ -1,12 +1,14 @@
 <template>
     <div>
-        <h4>
-            {{title}}
-        </h4>
-        {{ price }}$
-        <p>
-            {{ description }}
-        </p>
+        <router-link :to="'/products/'+id">
+            <h4>
+                {{ title }}
+            </h4>
+            {{ price }}$
+            <p>
+                {{ description }}
+            </p>
+        </router-link>
     </div>
 </template>
 
@@ -18,6 +20,7 @@ export default defineComponent({
         title: String,
         price: Number,
         description: String,
+        id: Number,
     },
 });
 </script>

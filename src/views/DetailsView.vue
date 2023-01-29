@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import Product from '@/components/Product.vue';
 import fakeShopApi from '@/api/fakeShopApi';
 import { AxiosResponse } from 'axios';
 
@@ -17,9 +16,6 @@ export default defineComponent({
             type: Number,
             required: true,
         },
-    },
-    components: {
-        Product
     },
     setup(props) {
         const productRequest = fakeShopApi.get<unknown, AxiosResponse<any>>(

@@ -1,6 +1,6 @@
 <template>
     <h1>List of products</h1>
-    <Product v-for="(item) in items" :title="item.title" :price="item.price" :description="item.description" />
+    <Product v-for="(item) in items" :id="item.id" :title="item.title" :price="item.price" :description="item.description" />
 </template>
 
 <script lang="ts">
@@ -25,6 +25,7 @@ export default defineComponent({
         productRequest.then((response)=> {
             response.data.forEach((element: any) => {
                 items.value.push({
+                    id: element.id,
                     title: element.title,
                     price: element.price,
                     description: element.description,
